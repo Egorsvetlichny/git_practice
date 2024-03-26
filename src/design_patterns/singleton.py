@@ -1,6 +1,5 @@
 class DataBaseConnection:
     __db_connection = None
-    __data = ''
 
     def __new__(cls, *args, **kwargs):
         if cls.__db_connection is None:
@@ -18,7 +17,10 @@ class DataBaseConnection:
 if __name__ == '__main__':
     connection = DataBaseConnection()
     connection.insert_data('text')
-    print(connection.select_data())
+    print(f"Параметр первого объекта: {connection.select_data()}")
 
     try_new_connection = DataBaseConnection()
-    print(try_new_connection.select_data())
+    # Специально не присваиваем новому объекту никаких данных
+    print(f"Параметр второго объекта: {try_new_connection.select_data()}")
+
+    print(try_new_connection is connection)
