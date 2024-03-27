@@ -47,6 +47,14 @@ class AdapterForKrwCurrency(ICurrency):
         return self.__krw_currency.get_count_money() * 0.000747
 
 
+class AdapterForUsdToRub(ICurrency):
+    def __init__(self, usd_currency: UsdCurrency):
+        self.__usd_currency = usd_currency
+
+    def get_count_money(self):
+        return self.__usd_currency.get_count_money() * 92.57
+
+
 if __name__ == '__main__':
     money = 100
 
@@ -57,3 +65,7 @@ if __name__ == '__main__':
     print(f"100 рублей в долларах равно: {rub_currency.get_count_money()}")
     print(f"100 долларов в долларах равно: {usd_currency.get_count_money()}")
     print(f"100 вон в долларах равно: {krw_currency.get_count_money()}")
+
+    print()
+
+    print(f"100 долларов в рублях равно: {AdapterForUsdToRub(UsdCurrency(money)).get_count_money()}")
