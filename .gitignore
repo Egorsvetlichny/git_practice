@@ -162,3 +162,5 @@ cython_debug/
 /src/work_with_file_formats/crypto_data.txt
 /src/work_with_file_formats/test_writerow.csv
 /src/work_with_file_formats/test_writerows.csv
+/src/work_with_file_formats/updated_json_file
+/src/work_with_file_formats/test_json_file
