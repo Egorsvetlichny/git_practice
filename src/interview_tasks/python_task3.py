@@ -3,18 +3,19 @@
 # а в конце выводила этот массив с нулями в конце.
 
 def add_zeros_to_end(arr: list) -> list:
-    zero_counter = 0
-    i = 0
+    # zero_counter = 0
+    # i = 0
+    #
+    # while i < len(arr):
+    #     if arr[i] == 0:
+    #         zero_counter += 1
+    #         arr.pop(i)
+    #     else:
+    #         i += 1
+    #
+    # arr.extend([0 for _ in range(zero_counter)])
 
-    while i < len(arr):
-        if arr[i] == 0:
-            zero_counter += 1
-            arr.pop(i)
-        else:
-            i += 1
-
-    arr.extend([0 for _ in range(zero_counter)])
-    return arr
+    return sorted(arr, key=lambda x: x == 0)
 
 
 def main():
