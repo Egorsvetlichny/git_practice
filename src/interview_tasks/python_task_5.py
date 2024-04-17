@@ -1,7 +1,7 @@
 # You get an integer number, return this number negative
 
 def make_negative(number: int) -> int:
-    return number if number <= 0 else number * -1
+    return number if number <= 0 else number * (-1)
 
 
 def main():
