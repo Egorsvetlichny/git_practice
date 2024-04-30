@@ -1,4 +1,7 @@
 import unittest
+from unittest.mock import patch
+
+import tests.person
 from tests.person import Person
 
 person = Person('Person')
@@ -70,3 +73,10 @@ class TestPerson(unittest.TestCase):
 
         for test_case in test_cases:
             self.assertRaises(test_case['exc'], person.work, **test_case['arguments'])
+
+    @patch.object(tests.person.Person, 'eat')
+    def test_do_some_things(self, mock_eat):
+        mock_eat.return_value = True
+
+        self.assertEqual(person.do_some_things(), True)
+        mock_eat.assert_called_once()
