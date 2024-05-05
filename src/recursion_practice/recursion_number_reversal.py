@@ -4,10 +4,10 @@
 # you cannot output the number one digit at a time.
 
 
-def rec_reverse_number(n: int, i=0) -> int:
-    if len(str(n)) == 0:
-        return 0
-    return (i * 10 + int(str(n)[0])) + rec_reverse_number(int(str(n)[1:]), i + 1)
+def rec_reverse_number(n: int, i: int = 0) -> int:
+    if n == 0:
+        return i
+    return rec_reverse_number(n // 10, i * 10 + n % 10)
 
 
 def main():
