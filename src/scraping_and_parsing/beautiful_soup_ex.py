@@ -1,3 +1,5 @@
+# Использование BeautifulSoup для скрапинга
+
 from bs4 import BeautifulSoup
 import requests
 

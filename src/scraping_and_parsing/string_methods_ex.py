@@ -1,3 +1,5 @@
+# Использование методов строк для парсинга. Парсинг нужной ссылки из html разметки сайта
+
 from bs4 import BeautifulSoup
 import requests
 
