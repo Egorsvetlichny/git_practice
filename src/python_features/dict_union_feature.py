@@ -5,4 +5,4 @@ dict2 = {'three': 3, 'four': 4}
 
 print({**dict1, **dict2})
 print(dict1 | dict2)
-# print(dict1 |= dict2)
+# print(dict1 |= dict2) в последнем обновлении
