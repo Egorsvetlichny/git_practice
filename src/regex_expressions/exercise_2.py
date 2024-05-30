@@ -5,7 +5,7 @@ import re
 
 
 def count_right_words(string: str) -> None:
-    print(len(re.findall(r'\bкоо*\w+\b', string, re.I)))
+    print(len(re.findall(r'\bкоо?\w+\b', string, re.I)))
 
 
 def main():
