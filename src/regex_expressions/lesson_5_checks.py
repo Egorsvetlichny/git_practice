@@ -30,5 +30,11 @@ print(pattern.findall(string))
 print()
 
 # Пример ретроспективной позитивной проверки
+string = 'VPN на 2 месяца стоит рублей 300'
+print(re.findall(r'(?<=\bрублей\s)\b\d+\b', string, re.I))
+print()
 
 # Пример ретроспективной негативной проверки
+string = 'Стоимость 2 приличных ноутбуков - примерно 4 тысячи долларов'
+print(re.findall(r'(?<!\bпримерно\s)\b\d+\b', string, re.I))
+print()
