@@ -1,11 +1,17 @@
 # moviepy - библиотека для извлечения звуковой дорожки из видео-файла.
 
-import moviepy.editor as mp
+from moviepy.editor import VideoFileClip
 
-file_path = 'Путь к директории'
+file_path = r'C:\Users\Алина\Downloads\Telegram Desktop\video.mp4'
+
 # Указываем mp4 файл, из которого будем извлекать звук
-clip = mp.VideoFileClip('video_file.mp4', file_path)
+video_clip = VideoFileClip(file_path)
+
 # Извлекаем аудио дорожку из видео-файла
-clip.audio.write_audiofile('audio_file.mp3')
+audio_clip = video_clip.audio.write_audiofile('audio_file.mp3')
+
+# Закрытие видео и аудио клипов
+video_clip.close()
+audio_clip.close()
 
 # Result: в указанной директории будет создан аудио-файл
