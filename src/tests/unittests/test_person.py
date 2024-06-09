@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
 
-import tests.person
 from tests.person import Person
 
 person = Person('Person')

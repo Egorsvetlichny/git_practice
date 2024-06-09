@@ -27,3 +27,7 @@ class TestGetCircleArea(unittest.TestCase):
         self.assertRaises(TypeError, get_circle_area, None)
         self.assertRaises(TypeError, get_circle_area, 5 + 5j)
         self.assertRaises(TypeError, get_circle_area, 'five')
+
+
+if __name__ == '__main__':
+    unittest.main()
