@@ -27,8 +27,17 @@ def create_tkinter_app():
         if button_text.isdigit() and entry.get() == '0':
             entry.delete(0, tk.END)
 
-        math_operation = ('+', '-', '*', '/', '//', '%', '√')
-        if button_text in math_operation and entry.get()[-1] in math_operation:
+        math_operation = ('+', '-', '*', '/', '//', '%', '^')
+        if entry.get() == 'Неверное математическое выражение!':
+            if button_text in math_operation or button_text == '√':
+                entry.delete(0, tk.END)
+                entry.insert(tk.END, '0' + button_text)
+            elif button_text.isdigit():
+                entry.delete(0, tk.END)
+                entry.insert(tk.END, button_text)
+            else:
+                pass
+        elif button_text in math_operation and entry.get()[-1] in math_operation:
             if button_text != '//':
                 entry.delete(len(entry.get()) - 1, tk.END)
                 entry.insert(tk.END, button_text)
@@ -39,14 +48,18 @@ def create_tkinter_app():
             entry.delete(0, tk.END)
             entry.insert(tk.END, '0')
         elif button_text == '=':
-            expression = entry.get()
+            expression = entry.get().replace('^', '**')
             entry.delete(0, tk.END)
             try:
                 result = str(numexpr.evaluate(expression))
                 entry.insert(tk.END, result)
                 return result
-            except (ValueError, ZeroDivisionError, TypeError):
+            except (ValueError, ZeroDivisionError, TypeError, Exception):
                 entry.insert(tk.END, "Неверное математическое выражение!")
+        # ДОДЕЛАТЬ!
+        elif button_text == '√':
+            if entry.get()[-1] in math_operation:
+                entry.insert(tk.END, button_text)
         else:
             entry.insert(tk.END, button_text)
 
@@ -91,7 +104,7 @@ def create_tkinter_app():
     button_0 = tk.Button(root, text='0', width=10, height=1, command=lambda: insert_text(button_0))
     button_eq = tk.Button(root, text='=', width=10, height=1, command=lambda: insert_text(button_eq))
     button_float_div = tk.Button(root, text='/', width=10, height=1, command=lambda: insert_text(button_float_div))
-    button_plus_minus = tk.Button(root, text='+/-', width=10, height=1, command=lambda: insert_text(button_plus_minus))
+    button_plus_minus = tk.Button(root, text='^', width=10, height=1, command=lambda: insert_text(button_plus_minus))
     button_c.place(x=80, y=224)
     button_0.place(x=170, y=224)
     button_eq.place(x=260, y=224)
