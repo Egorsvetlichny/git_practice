@@ -37,7 +37,7 @@ def create_tkinter_app():
                 entry.insert(tk.END, button_text)
             else:
                 pass
-        elif button_text in math_operation and entry.get()[-1] in math_operation:
+        elif button_text in math_operation and (entry.get()[-1] in math_operation or entry.get()[-1] == '('):
             if button_text != '//':
                 entry.delete(len(entry.get()) - 1, tk.END)
                 entry.insert(tk.END, button_text)
@@ -48,7 +48,7 @@ def create_tkinter_app():
             entry.delete(0, tk.END)
             entry.insert(tk.END, '0')
         elif button_text == '=':
-            expression = entry.get().replace('^', '**')
+            expression = entry.get().replace('^', '**').replace('√', 'sqrt')
             entry.delete(0, tk.END)
             try:
                 result = str(numexpr.evaluate(expression))
@@ -59,7 +59,7 @@ def create_tkinter_app():
         # ДОДЕЛАТЬ!
         elif button_text == '√':
             if entry.get()[-1] in math_operation:
-                entry.insert(tk.END, button_text)
+                entry.insert(tk.END, button_text + '(')
         else:
             entry.insert(tk.END, button_text)
 
