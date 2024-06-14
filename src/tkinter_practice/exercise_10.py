@@ -6,8 +6,6 @@
 # Кроме того, программа должна поддерживать очистку ввода.
 
 import tkinter as tk
-import re
-
 import numexpr
 
 
@@ -36,13 +34,15 @@ def create_tkinter_app():
                 entry.delete(0, tk.END)
                 entry.insert(tk.END, button_text)
             else:
-                pass
+                return
         elif button_text in math_operation and (entry.get()[-1] in math_operation or entry.get()[-1] == '('):
-            if button_text != '//':
-                entry.delete(len(entry.get()) - 1, tk.END)
+            if entry.get()[-1] == '(':
+                return
+            elif str(entry.get()[-2:]) == '//':
+                entry.delete(len(entry.get()) - 2, tk.END)
                 entry.insert(tk.END, button_text)
             else:
-                entry.delete(len(entry.get()) - 2, tk.END)
+                entry.delete(len(entry.get()) - 1, tk.END)
                 entry.insert(tk.END, button_text)
         elif button_text == 'C':
             entry.delete(0, tk.END)
@@ -56,7 +56,6 @@ def create_tkinter_app():
                 return result
             except (ValueError, ZeroDivisionError, TypeError, Exception):
                 entry.insert(tk.END, "Неверное математическое выражение!")
-        # ДОДЕЛАТЬ!
         elif button_text == '√':
             if entry.get()[-1] in math_operation:
                 entry.insert(tk.END, button_text + '(')
