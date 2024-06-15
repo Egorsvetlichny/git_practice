@@ -61,7 +61,6 @@ def create_tkinter_app():
         tree.insert("", tk.END, values=("Преступление и наказание", "Федор Достоевский", "АСТ", 1866))
         tree.insert("", tk.END, values=("Мастер и Маргарита", "Михаил Булгаков", "Эксмо", 1966))
 
-        # ДОДЕЛАТЬ!!!!!
         def show_details(event):
             item = tree.selection()[0]
             book_data = tree.item(item, "values")
