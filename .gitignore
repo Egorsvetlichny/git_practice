@@ -168,3 +168,10 @@ cython_debug/
 /src/scraping_and_parsing/Ohotnik_za_tenyu.jpeg
 /src/scraping_and_parsing/fantasy_movies.txt
 /src/python_features/audio_file.mp3
+/.idea/.gitignore
+/.idea/git_practice.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
